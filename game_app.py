@@ -83,4 +83,5 @@ def callback(*btns):
     return player6.callback_func(ctx, next_button_state=btns[-1])
 
 if __name__ == '__main__':
-    app.run_server(debug=True, port=9000)
+    app.run_server(debug=True, port=9001, host='0.0.0.0')
+    #app.run_server(debug=True, , port=9001)
