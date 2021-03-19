@@ -46,13 +46,14 @@ def index_callback(val):
 def index_callback(n_click, href_input,  n_player, *vals):
 
     if n_click is not None:
-        preprocess(n_player, vals, dir='../data')
+        preprocess(n_player, vals, dir='./data')
         L=[dcc.Markdown('''Envoi ces liens à tes coéquipiers:''')]
-        for i in range(n_player):
+        for i in range(1,n_player+1):
             href = "{}9001/player{}".format(href_input.split('9000')[0], i)
             L = L + [dcc.Markdown('''{} : {}'''.format(vals[i], href))]
         return L
     else:
+        preprocess(6, vals, dir='./data')
         return None
 
 @app.callback(Output("validation_button","disabled"),
