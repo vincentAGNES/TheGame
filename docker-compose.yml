@@ -1,0 +1,27 @@
+version: '3'
+
+volumes:
+  static-content:
+
+services:
+  admin:
+    build:
+      context: .
+      dockerfile: dockerfile_admin
+    ports:
+      - "9000:9000"
+    volumes:
+      - static-content:/app/data
+
+  game:
+    depends_on:
+      - admin
+    build:
+      context: .
+      dockerfile: dockerfile_game
+    ports:
+      - "9001:9001"
+    volumes:
+      - static-content:/app/data
+
+
