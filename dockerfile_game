@@ -2,12 +2,14 @@ FROM python:3.8-slim
 COPY requirements.txt /app/requirements.txt
 WORKDIR ./app
 RUN pip install -r requirements.txt
-COPY . .
 
-RUN python process_excel.py
+COPY game_app.py game_app.py
+COPY utils.py utils.py
+COPY game_utils.py game_utils.py
+COPY player.py player.py
 
-EXPOSE 5000
-CMD python app.py
+EXPOSE 9001
+CMD ["python", "game_app.py"]
 
 # docker build -t vincentagnes/app_proto_sodiaal:V2 .
 # docker run -p 8080:5000 vincentagnes/app_proto_sodiaal:V2
