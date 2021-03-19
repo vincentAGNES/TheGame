@@ -1,7 +1,7 @@
 import random
 import json
 import os
-from TheGame.utils import read_file, write_file
+from utils import read_file, write_file
 
 def pick_cards(N, dir="data"):
     cartes = read_file(os.path.join(dir,'cartes.txt'))
@@ -10,7 +10,7 @@ def pick_cards(N, dir="data"):
     return picked_carte
 
 
-def preprocess(n_player, vals, dir='data'):
+def preprocess(n_player, vals, dir='./data'):
     game = {}
     game['n_player'] = n_player
     game['players_name'] = {}
@@ -25,6 +25,7 @@ def preprocess(n_player, vals, dir='data'):
     # create deck
     cartes = list(range(2,100))
     random.shuffle(cartes)
+    print('rrr', dir, os.path.join(dir, 'cartes.txt'))
     with open(os.path.join(dir, 'cartes.txt'), 'w') as f:
         for i in cartes:
             f.write('{}\n'.format(i))
