@@ -2,7 +2,7 @@ import dash_core_components as dcc
 import dash_bootstrap_components as dbc
 import dash_html_components as html
 import os
-from TheGame.utils import read_file, write_file
+from utils import read_file, write_file
 
 update_interval = dcc.Interval(
             id='interval-component',
