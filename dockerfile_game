@@ -8,8 +8,15 @@ COPY utils.py utils.py
 COPY game_utils.py game_utils.py
 COPY player.py player.py
 
+ENV TINI_VERSION v0.19.0
+ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
+RUN chmod +x /tini
+
+ENTRYPOINT ["/tini", "--"]
+
+
 EXPOSE 9001
-CMD ["python", "game_app.py"]
+CMD ["gunicorn", "--bind", "0.0.0.0:9001", "--workers", "4", "game_app:server"]
 
 # docker build -t vincentagnes/app_proto_sodiaal:V2 .
 # docker run -p 8080:5000 vincentagnes/app_proto_sodiaal:V2

@@ -4,11 +4,12 @@ import dash_html_components as html
 from dash.dependencies import Input, Output
 import dash_bootstrap_components as dbc
 
-from TheGame.game_utils import update_interval
-from TheGame.player import Player
+from game_utils import update_interval
+from player import Player
 
 app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
 app.config.suppress_callback_exceptions = True
+server = app.server
 
 player1 = Player(1)
 player2 = Player(2)
@@ -40,7 +41,7 @@ def display_page(pathname, href):
         return player6.layout
     else:
         L = [dcc.Markdown('''Va voir ces liens:''')]
-        for i in range(7):
+        for i in range(1, 7):
             href_ = "{}player{}".format(href, i)
             L = L + [dcc.Markdown('''{}'''.format(href_))]
         return L
