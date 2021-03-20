@@ -3,7 +3,7 @@ import json
 
 
 def read_file(filename):
-    path = "../"
+    path = ""
     filepath = os.path.join(path, filename)
     with open(filepath, 'r') as f:
         if filename.endswith(".json"):
@@ -18,7 +18,7 @@ def read_file(filename):
 
 
 def write_file(filename, content):
-    path = "../"
+    path = ""
     filepath = os.path.join(path, filename)
     if 'historic' in filename:
         with open(filepath, 'a') as f:
