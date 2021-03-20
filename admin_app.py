@@ -7,6 +7,7 @@ from admin_utils import preprocess
 
 app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
 app.config.suppress_callback_exceptions = True
+server = app.server
 
 checklist = dbc.RadioItems(
     id="input_number_player",
@@ -65,5 +66,5 @@ def index_callback(number_player, *vals):
     return True
 
 if __name__ == '__main__':
-    #app.run_server(debug=True, port=9000)
-    app.run_server(debug=True, port=9000, host='0.0.0.0')
+    app.run_server(debug=True, port=9000)
+    #app.run_server(debug=True, port=9000, host='0.0.0.0')

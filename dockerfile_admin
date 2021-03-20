@@ -3,9 +3,16 @@ COPY requirements.txt /app/requirements.txt
 WORKDIR ./app
 RUN pip install -r requirements.txt
 
+ENV TINI_VERSION v0.19.0
+ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
+RUN chmod +x /tini
+
+ENTRYPOINT ["/tini", "--"]
+
 COPY admin_app.py admin_app.py
 COPY admin_utils.py admin_utils.py
 COPY utils.py utils.py
 
 EXPOSE 9000
-CMD ["python", "admin_app.py"]
+#CMD ["python", "admin_app.py"]
+CMD ["gunicorn", "--bind", "0.0.0.0:9000", "--workers", "4", "admin_app:server"]
