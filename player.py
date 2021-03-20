@@ -1,4 +1,4 @@
-from TheGame.game_utils import read_file, \
+from game_utils import read_file, \
     write_file, \
     get_list_disabled, \
     get_player_to_play, \
@@ -18,7 +18,7 @@ class Player:
 
         self.name = "player" + str(number)
         self.number = number
-        self.cards_file = "data/hand_" + str(number) + '.txt'
+        self.cards_file = "./data/hand_" + str(number) + '.txt'
         if not os.path.exists(self.cards_file):
             with open(self.cards_file, 'w') as f:
                 f.write("none")
