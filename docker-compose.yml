@@ -9,7 +9,7 @@ services:
       context: .
       dockerfile: dockerfile_admin
     ports:
-      - "9000:9000"
+      - "5000:5000"
     volumes:
       - static-content:/app/data
 
@@ -20,7 +20,7 @@ services:
       context: .
       dockerfile: dockerfile_game
     ports:
-      - "9001:9001"
+      - "5001:5001"
     volumes:
       - static-content:/app/data
 

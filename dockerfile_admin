@@ -13,6 +13,6 @@ COPY admin_app.py admin_app.py
 COPY admin_utils.py admin_utils.py
 COPY utils.py utils.py
 
-EXPOSE 9000
+EXPOSE 5000
 #CMD ["python", "admin_app.py"]
-CMD ["gunicorn", "--bind", "0.0.0.0:9000", "--workers", "4", "admin_app:server"]
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "--workers", "4", "admin_app:server"]

@@ -15,8 +15,8 @@ RUN chmod +x /tini
 ENTRYPOINT ["/tini", "--"]
 
 
-EXPOSE 9001
-CMD ["gunicorn", "--bind", "0.0.0.0:9001", "--workers", "4", "game_app:server"]
+EXPOSE 5001
+CMD ["gunicorn", "--bind", "0.0.0.0:5001", "--workers", "4", "game_app:server"]
 
 # docker build -t vincentagnes/app_proto_sodiaal:V2 .
 # docker run -p 8080:5000 vincentagnes/app_proto_sodiaal:V2
