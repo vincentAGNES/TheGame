@@ -13,7 +13,7 @@ COPY admin_app.py admin_app.py
 COPY admin_utils.py admin_utils.py
 COPY utils.py utils.py
 
-VOLUME ./data
+VOLUME ./app/data
 
 EXPOSE 5000
 #CMD ["python", "admin_app.py"]
