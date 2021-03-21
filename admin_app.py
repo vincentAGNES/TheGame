@@ -50,7 +50,7 @@ def index_callback(n_click, href_input,  n_player, *vals):
         preprocess(n_player, vals, dir='./data')
         L=[dcc.Markdown('''Envoi ces liens à tes coéquipiers:''')]
         for i in range(1,n_player+1):
-            href = "{}9001/player{}".format(href_input.split('9000')[0], i)
+            href = "{}5001/player{}".format(href_input.split('5000')[0], i)
             L = L + [dcc.Markdown('''{} : {}'''.format(vals[i], href))]
         return L
     else:
