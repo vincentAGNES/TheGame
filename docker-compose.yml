@@ -1,8 +1,5 @@
 version: '3'
 
-volumes:
-  static-content:
-
 services:
   admin:
     build:
@@ -11,17 +8,13 @@ services:
     ports:
       - "5000:5000"
     volumes:
-      - static-content:/app/data
+      - ./data:/app/data:rw
 
   game:
-    depends_on:
-      - admin
     build:
       context: .
       dockerfile: dockerfile_game
     ports:
       - "5001:5001"
     volumes:
-      - static-content:/app/data
-
-
+      - ./data:/app/data:rw
