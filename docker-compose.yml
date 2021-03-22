@@ -15,6 +15,6 @@ services:
       context: .
       dockerfile: dockerfile_game
     ports:
-      - "5001:5001"
+      - "8050:8050"
     volumes:
       - ./data:/app/data:rw
