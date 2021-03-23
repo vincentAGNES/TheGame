@@ -11,6 +11,8 @@ services:
       - ./data:/app/data:rw
 
   game:
+    depends_on:
+      - admin
     build:
       context: .
       dockerfile: dockerfile_game
