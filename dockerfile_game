@@ -13,6 +13,7 @@ COPY game_app.py game_app.py
 COPY utils.py utils.py
 COPY game_utils.py game_utils.py
 COPY player.py player.py
+COPY appp.py appp.py
 
 VOLUME /app/data
 
