@@ -1,4 +1,4 @@
-dash
+dash==1.19.0
 dash_bootstrap_components
 dash_html_components
-gunicorn
+gunicorn==20.0.4
