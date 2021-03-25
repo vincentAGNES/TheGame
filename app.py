@@ -25,21 +25,6 @@ checklist = dbc.RadioItems(
     labelCheckedStyle={"color": "red"},
 )
 
-app.layout = html.Div([
-    html.H5(" Combien de joueurs ? "),
-    checklist,
-    html.H5(id='input_user', style=dict(margin="10px")),
-    html.Div([dbc.Input(placeholder="Nom du joueur {}".format(i),
-                       style={"display":"none"},
-                       id="name_{}".format(i)) for i in range(1,7)]),
-    dbc.Button("Lancer la partie", id="validation_button", color="info", className="mr-1", disabled=True, style={"display":"none"}),
-    html.P(id="target"),
-    dcc.Location(id='url', refresh=False)
-], style={'margin':'10px'})
-
-
-
-
 
 player1 = Player(1)
 player2 = Player(2)
@@ -70,6 +55,11 @@ index_layout = html.Div([
 @app.callback(Output('page-content', 'children'),
               [Input('url', 'pathname')])
 def display_page(pathname):
+    ctx = dash.callback_context
+
+    print(    ctx.triggered[0]['prop_id'].split('.')[0] )
+
+
     if pathname == '/player1':
         return player1.layout
     elif pathname == '/player2':
