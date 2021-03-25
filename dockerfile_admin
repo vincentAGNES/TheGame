@@ -12,6 +12,7 @@ ENTRYPOINT ["/tini", "--"]
 COPY admin_app.py admin_app.py
 COPY admin_utils.py admin_utils.py
 COPY utils.py utils.py
+COPY appp.py appp.py
 
 VOLUME /app/data
 
